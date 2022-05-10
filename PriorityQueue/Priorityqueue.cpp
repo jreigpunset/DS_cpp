@@ -4,11 +4,11 @@
 #include<map>
 #include<set>
 
-//Priority Queue tipically impleneted with binary heap
+//Priority Queue tipically implemeted with binary heap
 using namespace std;
 
 template<typename T>
-class PriorityQueue{
+class PriorityQueue {
     int heapSize = 0;
     int heapCapacity = 0;
     list<T> heap = null;
@@ -20,7 +20,7 @@ public:
     }
 
     PriorityQueue(int sz) {
-        heap = new list<>();
+        heap = new list<T>();
     }
     //construct a priority queue using heapify in 0(n)
     PriorityQueue(T[] elems) {
@@ -52,6 +52,44 @@ public:
         heapSize= 0;
         hashtable.clear();
     }
+
+    /* peek Returns the value of the element with the lowest
+     * priority in this priority queue. If the priority
+     * queue is empty null is returned. 
+     */
+
+    int peek() {
+        if(isEmpty()) return NULL;
+
+         return heap[size()];
+
+    }
+    //poll Removes the root of the heap, 0(log (n))
+    //contains Test if an element is in heap 0(n)
+    //Add
+    // Adds an element to the priority queue, the
+    // element must not be null, O(log(n))
+
+    // less 
+    // Tests if the value of node i <= node j
+    // This method assumes i & j are valid indices, O(1)
+
+    //swim Perform bottom up node swim, O(log(n))
+
+    // Top down node sink, O(log(n))
+    //private void sink(int k) {
+
+    // Swap two nodes. Assumes i & j are valid, O(1)
+    // private void swap(int i, int j) {
+
+    // Removes a node at particular index, O(log(n))
+    // private T removeAt(int i) {
+
+  // Recursively checks if this heap is a min heap
+  // This method is just for testing purposes to make
+  // sure the heap invariant is still being maintained
+  // Called this method with k=0 to start at the root
+  //public boolean isMinHeap(int k) {
 
 
 
