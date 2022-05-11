@@ -4,7 +4,7 @@
 #include<map>
 #include<set>
 
-//Priority Queue tipically implemeted with binary heap
+//Priority Queue tipically implemented with binary heap
 using namespace std;
 
 template<typename T>
@@ -15,7 +15,7 @@ class PriorityQueue {
     map<T, set<int>> hashtable = new map<T,set<int>>();
 
 public:
-    PriorityQueue(){
+    PriorityQueue() {
         this(1);
     }
 
@@ -61,14 +61,26 @@ public:
     int peek() {
         if(isEmpty()) return NULL;
 
-         return heap[size()];
-
+         return heap[0];
     }
     //poll Removes the root of the heap, 0(log (n))
+    T poll() {
+        return removeAt(0);
+    }
+
     //contains Test if an element is in heap 0(n)
+    bool contains(T elem) {
+        //Linear scan to check containment
+        list<T>::iterator it;
+        for(it = heap.begin(); it !=heap.end(); it++) {
+            if(it == elem) return true;
+            return false;
+        }
+    }
     //Add
     // Adds an element to the priority queue, the
     // element must not be null, O(log(n))
+
 
     // less 
     // Tests if the value of node i <= node j
